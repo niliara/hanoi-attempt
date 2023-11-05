@@ -20,9 +20,8 @@
 		Globals.poles[2] = Globals.pole3;
 
 
-		Console.WriteLine("\nWelcome to Tower of Hanoi!!!\n");
-
-		Console.WriteLine(Globals.poles.Length);
+		Console.WriteLine("\nWelcome to Tower of Hanoi!!! --press h for help\n");
+		printHanoi();
 
 		while (playing)
 		{
@@ -41,7 +40,7 @@
 					playing = false;
 					break;
 				case "h":
-					Console.WriteLine("\nAvailable actions:\n- see : check towers\n- h : help\n- q : quit");
+					Console.WriteLine("\nAvailable actions:\n- mv <colNumber(0,1,2)> <colNumber>\n- see : check towers\n- h : help\n- q : quit");
 					break;
 				default:
 					Console.WriteLine("\nnot a valid action!! type h to see available actions");
@@ -119,13 +118,7 @@
 		var last = Globals.poles[operators[0]].Count-1;
 		Globals.poles[operators[1]].Add(Globals.poles[operators[0]][last]);
 		Globals.poles[operators[0]].RemoveAt(last);
-		//Array.Clear(Globals.poles[operators[0]],last-1,1);
-		//Globals.poles[operators[0]].RemoveAt(last-1);
 		
-		for (int i=1; i<Globals.poles[operators[0]].Count; i++){
-			Console.WriteLine(Globals.poles[operators[0]][i]);
-		}
-
 		printHanoi();
 
 	}
