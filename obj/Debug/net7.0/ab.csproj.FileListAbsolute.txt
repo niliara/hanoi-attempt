@@ -1,0 +1,14 @@
+/home/niliara/c/ab/bin/Debug/net7.0/ab
+/home/niliara/c/ab/bin/Debug/net7.0/ab.deps.json
+/home/niliara/c/ab/bin/Debug/net7.0/ab.runtimeconfig.json
+/home/niliara/c/ab/bin/Debug/net7.0/ab.dll
+/home/niliara/c/ab/bin/Debug/net7.0/ab.pdb
+/home/niliara/c/ab/obj/Debug/net7.0/ab.GeneratedMSBuildEditorConfig.editorconfig
+/home/niliara/c/ab/obj/Debug/net7.0/ab.AssemblyInfoInputs.cache
+/home/niliara/c/ab/obj/Debug/net7.0/ab.AssemblyInfo.cs
+/home/niliara/c/ab/obj/Debug/net7.0/ab.csproj.CoreCompileInputs.cache
+/home/niliara/c/ab/obj/Debug/net7.0/ab.dll
+/home/niliara/c/ab/obj/Debug/net7.0/refint/ab.dll
+/home/niliara/c/ab/obj/Debug/net7.0/ab.pdb
+/home/niliara/c/ab/obj/Debug/net7.0/ab.genruntimeconfig.cache
+/home/niliara/c/ab/obj/Debug/net7.0/ref/ab.dll
