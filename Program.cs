@@ -2,11 +2,9 @@
 {
 	public static class Globals
 	{
-		public static List<int> pole1 = new List<int>();
-		public static List<int> pole2 = new List<int>();
-		public static List<int> pole3 = new List<int>();
 		public static List<int>[] poles = new List<int>[3];
 
+		public static int yourMoves = 0;
 		public static int maxSpace;
 		public static int disks;
 	}
@@ -41,10 +39,9 @@
 		{
 			Globals.disks=20;
 		}
-
-		Globals.poles[0] = Globals.pole1;
-		Globals.poles[1] = Globals.pole2;
-		Globals.poles[2] = Globals.pole3;
+		Globals.poles[0] = new List<int>();;
+		Globals.poles[1] = new List<int>();;
+		Globals.poles[2] = new List<int>();;
 
 		for (int i=Globals.disks; i>0; i--)
 		{
@@ -74,7 +71,7 @@
 					break;
 				case "h":
 					Console.WriteLine("\nAvailable actions:\n- mv <colNumber(0,1,2)> <colNumber>\n- see : check towers\n- h : help\n- q : quit");
-					Console.WriteLine("\nThe objective of this game is to move all the disks to the 3rd pole (pole 2).");
+					Console.WriteLine("\nMove all the disks from pole 0 to pole 2. Their disk below always have to be bigger. You can only move one disk at a time");
 					break;
 				default:
 					Console.WriteLine("\nnot a valid action!! type h to see available actions");
@@ -142,7 +139,7 @@
 		}
 
 		if (operators[0] == operators[1]
-				|| Globals.poles[operators[0]] == null
+				|| (Globals.poles[operators[0]] == null ? true : !Globals.poles[operators[0]].Any())
 				|| (!Globals.poles[operators[1]].Any() ? false : Globals.poles[operators[0]].LastOrDefault() > Globals.poles[operators[1]].LastOrDefault()))
 		{
 			Console.WriteLine("invalid move");
@@ -152,8 +149,24 @@
 		var last = Globals.poles[operators[0]].Count-1;
 		Globals.poles[operators[1]].Add(Globals.poles[operators[0]][last]);
 		Globals.poles[operators[0]].RemoveAt(last);
+		Globals.yourMoves += 1;
+		Console.WriteLine($"Moves: {Globals.yourMoves}");
 		
 		printHanoi();
+
+		if (Globals.poles[operators[1]].Count == Globals.disks)
+		{
+			int minMoves = 1;
+			for (int i=1; i<Globals.disks; i++)
+			{
+				minMoves += minMoves+1;
+			}
+			Console.WriteLine("\nYou won!!");
+			Console.WriteLine("Your moves:    {0}", Globals.yourMoves);
+			Console.WriteLine("Minimum moves: {0}", minMoves);
+			System.Environment.Exit(1);
+		}
+
 
 	}
 }
